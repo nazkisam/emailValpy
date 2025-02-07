@@ -1,5 +1,7 @@
 email = input('enter your email')
 k=0
+j=0
+d=0
 if len(email) >= 6:
   if email[0].isalpha():
      if ('@' in email) and (email.count('@')==1):
@@ -7,13 +9,26 @@ if len(email) >= 6:
         for i in email:
           if i==i.isspace():
               k=1
-        if k==1:
-            print('wrong email space')   
+          elif i.isalpha():
+            if i==i.isupper():
+              j=1
+          elif i.isdigit():
+            continue
+          elif i=='_' or i=='.' or i=='@':
+            continue
+          else:
+            d=1
+
+        if k==1 or j==1 or d==1:
+            
+          print('wrong email space')
+        else:
+          print('correct email')
        else:
          print('wrong .pos')     
      else:
        print('wrong @') 
   else:
-    print('not valid')
+    print('alpha  error')
 else:
   print('wrong email 1')
